@@ -1,4 +1,4 @@
-## ⚽ Futbol Oyunu (Pygame)
+# ⚽ Futbol Oyunu (Pygame)
 
 Bu proje, Pygame kütüphanesi ile geliştirilmiş 2D bir futbol şut oyunu. Oyuncu, topun açısını ve gücünü ayarlayarak kaleye şut çekmeye çalışır. Belirli bir süre içinde mümkün olduğunca fazla gol atmak hedeflenir.
 
@@ -12,27 +12,17 @@ Bu proje, Pygame kütüphanesi ile geliştirilmiş 2D bir futbol şut oyunu. Oyu
 - En yüksek skor kaydı (dosyada saklanır)
 - Basit menü ve oyun sonu ekranı
 
-## 🖼️ Oyun Görselleri
-
-Oyun aşağıdaki resim dosyalarını kullanır. Bu dosyaların aynı klasörde bulunması gerekir:
-
-- `stadyum.png`: Arka plan resmi
-- `run1.png`: Oyuncu durma pozisyonu
-- `run2.png`, `run3.png`, `run4.png`: Şut animasyon kareleri
-- `futboltopu.png`: Futbol topu
-- `kale.png`: Kale (hoop) görseli
-
 ## ⌨️ Kontroller
 
-| Tuş | İşlev |
-|-----|-------|
-| ↑   | Açı artır |
-| ↓   | Açı azalt |
-| →   | Güç artır |
-| ←   | Güç azalt |
-| SPACE | Şut çek |
+| Tuş   | İşlev                             |
+| ----- | --------------------------------- |
+| ↑     | Açı artır                         |
+| ↓     | Açı azalt                         |
+| →     | Güç artır                         |
+| ←     | Güç azalt                         |
+| SPACE | Şut çek                           |
 | ENTER | Menüden başla veya yeniden başlat |
-| ESC   | Oyundan çık |
+| ESC   | Oyundan çık                       |
 
 ## 🧠 Oyun Mekanikleri
 
@@ -50,3 +40,34 @@ Oyun aşağıdaki resim dosyalarını kullanır. Bu dosyaların aynı klasörde 
 
 ```bash
 pip install pygame
+```
+
+3. Tüm resim dosyalarıyla birlikte `futbol.py` dosyasını aynı klasöre yerleştir.
+4. Oyunu başlat:
+
+```bash
+python futbol.py
+```
+
+## 📁 Dosya Yapısı
+
+```
+futbol.py
+stadyum.png
+run1.png
+run2.png
+run3.png
+run4.png
+futboltopu.png
+kale.png
+highest_score.txt (otomatik oluşur)
+README.md
+```
+
+## 📜 Lisans
+
+Bu proje eğitim ve kişisel kullanım amaçlıdır. Ticari kullanım için geliştirici izni gereklidir.
+
+---
+
+İyi eğlenceler! 🎉
