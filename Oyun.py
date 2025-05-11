@@ -25,3 +25,13 @@ vel = 5
 
 animasyon_zamanlayici = 0
 frame_gecikmesi = 7
+
+# Şut animasyonu kontrol
+sut_animation = False
+sut_frame = 0
+
+# Fontlar
+font = pygame.font.SysFont(None, 28)
+baslik_font = pygame.font.SysFont(None, 64)
+skor_font = pygame.font.SysFont(None, 48)
+skor_font = pygame.font.SysFont(None, 48)
