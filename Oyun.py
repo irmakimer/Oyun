@@ -63,3 +63,11 @@ def yuksek_skor_kaydet(skor):
         f.write(str(skor))
 
 yuksek_skor = yuksek_skor_yukle()
+
+def reset_top():
+    global top_pos, vektor, top_hareketli_mi, sekme, top_donus_acisi
+    top_pos = list(top_start)
+    vektor = [0, 0]
+    sekme = 0
+    top_hareketli_mi = False
+    top_donus_acisi = 0
