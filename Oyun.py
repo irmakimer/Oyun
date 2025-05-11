@@ -35,3 +35,15 @@ font = pygame.font.SysFont(None, 28)
 baslik_font = pygame.font.SysFont(None, 64)
 skor_font = pygame.font.SysFont(None, 48)
 skor_font = pygame.font.SysFont(None, 48)
+
+def yuksek_skor_yukle():
+    if os.path.exists("highest_score.txt"):
+        with open("../../Desktop/highest_score.txt", "r") as f:
+            return int(f.read())
+    return 0
+
+def yuksek_skor_kaydet(skor):
+    with open("../../Desktop/highest_score.txt", "w") as f:
+        f.write(str(skor))
+
+yuksek_skor = yuksek_skor_yukle()
