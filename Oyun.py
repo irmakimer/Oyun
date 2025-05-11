@@ -26,6 +26,22 @@ vel = 5
 animasyon_zamanlayici = 0
 frame_gecikmesi = 7
 
+# Top
+top_start = [150, HEIGHT - 50]
+top_pos = list(top_start)
+top_yaricap = 25
+top_aci = 45
+guc = 20
+top_hareketli_mi = False
+vektor = [0, 0]
+yer_cekimi = 0.5
+skor = 0
+total_atislar = 0
+sekme = 0
+sekme_limiti = 3
+sekmedeki_yukseklik_azalmasi = 0.7
+top_donus_acisi = 0
+
 # Şut animasyonu kontrol
 sut_animation = False
 sut_frame = 0
