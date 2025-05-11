@@ -14,7 +14,14 @@ pygame.display.set_caption("Futbol Oyunu")
 clock = pygame.time.Clock()
 
 # Renkler
-WHITE = (255, 255, 255)
+WHITE = (230, 230, 230)
 BLACK = (0, 0, 0)
-RED = (255, 50, 50)
-GREEN = (0, 200, 0)
+RED = (200, 50, 50)
+GREEN = (50, 200, 100)
+
+# Karakter
+eni, boyu = 64, 64
+vel = 5
+
+animasyon_zamanlayici = 0
+frame_gecikmesi = 7
