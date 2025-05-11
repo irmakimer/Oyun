@@ -52,6 +52,19 @@ baslik_font = pygame.font.SysFont(None, 64)
 skor_font = pygame.font.SysFont(None, 48)
 skor_font = pygame.font.SysFont(None, 48)
 
+# Menü
+menu = True
+oyun_bitti = False
+start_time = None
+zaman_siniri = 90
+gecen_sure = 0
+
+# Random kale yeri ve boyutu
+def random_hoop():
+    hoop_y = random.randint(100, HEIGHT - 200)
+    hoop_h = random.randint(80, 140)
+    return pygame.Rect(WIDTH - 120, hoop_y, 100, hoop_h)
+
 def yuksek_skor_yukle():
     if os.path.exists("highest_score.txt"):
         with open("../../Desktop/highest_score.txt", "r") as f:
@@ -63,6 +76,7 @@ def yuksek_skor_kaydet(skor):
         f.write(str(skor))
 
 yuksek_skor = yuksek_skor_yukle()
+hoop = random_hoop()
 
 def reset_top():
     global top_pos, vektor, top_hareketli_mi, sekme, top_donus_acisi
