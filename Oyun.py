@@ -71,3 +71,14 @@ def reset_top():
     sekme = 0
     top_hareketli_mi = False
     top_donus_acisi = 0
+
+def giris_menusu():
+    screen.blit(arkaplan_resmi, (0, 0))
+    baslik = baslik_font.render("Futbol Oyunu", True, WHITE)
+    giris_text = font.render("ENTER - Başlat", True, GREEN)
+    cikis_text = font.render("ESC - Çıkış", True, RED)
+    screen.blit(baslik, (WIDTH // 2 - baslik.get_width() // 2, 160))
+    screen.blit(giris_text, (WIDTH // 2 - giris_text.get_width() // 2, 250))
+    screen.blit(cikis_text, (WIDTH // 2 - cikis_text.get_width() // 2, 290))
+    pygame.display.flip()
+
