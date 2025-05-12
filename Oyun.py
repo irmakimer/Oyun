@@ -96,3 +96,24 @@ def giris_menusu():
     screen.blit(cikis_text, (WIDTH // 2 - cikis_text.get_width() // 2, 290))
     pygame.display.flip()
 
+# Ana Oyun Döngüsü
+while True:
+    if menu:
+        giris_menusu()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_RETURN]:
+            menu = False
+            start_time = time.time()
+            skor = 0
+            total_atislar = 0
+            gecen_sure = 0
+            reset_top()
+            hoop = random_hoop()
+        elif keys[pygame.K_ESCAPE]:
+            pygame.quit()
+            sys.exit()
+        continue
