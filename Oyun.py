@@ -236,10 +236,13 @@ while True:
     if not top_hareketli_mi and not sut_animation:
         gidis_yonu_cizimi(top_pos, top_aci, guc)
 
+    isabet_orani = round((skor / total_atislar) * 100, 1) if total_atislar > 0 else 0
+    screen.blit(font.render(f"Açı: {top_aci}", True, WHITE), (10, 10))
+    screen.blit(font.render(f"Güç: {guc}", True, WHITE), (10, 30))
+    screen.blit(font.render(f"Skor: {skor}", True, WHITE), (10, 50))
+    screen.blit(font.render(f"Atış: {total_atislar}", True, WHITE), (10, 70))
+    screen.blit(font.render(f"İsabet Oranı: %{isabet_orani}", True, GREEN), (10, 105))
+    screen.blit(font.render(f"Süre: {zaman_siniri - gecen_sure}s", True, RED), (10, 125))
+    screen.blit(skor_font.render(f"En Yüksek Skor: {yuksek_skor}", True, WHITE), (WIDTH - 330, 15))
 
-
-
-
- 
-
-        
+    pygame.display.flip()
