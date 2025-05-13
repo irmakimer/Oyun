@@ -7,17 +7,21 @@ Bu proje, Pygame kütüphanesi ile geliştirilmiş 2D bir futbol şut oyunu. Oyu
 Aşağıda oyunda kullanılan bazı görselleri görebilirsiniz:
 
 ### Menüler
-
 <p float="left">
 <img src="Resimler\AnaEkran.png" alt="Başlangıç Menüsü" width="300"/>
 <img src="Resimler\BitişEkranı.png" alt="Bitiş Menüsü" width="300"/>
 </p>
 
 ### Oyun Ekranı (Şut öncesi ve sonrası)
-
 <p float="left">
 <img src="Resimler\OyunEkranı1.png" alt="Oyun Şut Öncesi" width="300"/>
 <img src="Resimler\OyunEkranı4.png" alt="Oyun Şut Sonrası" width="300"/>
+</p>
+
+### Oyun Ekranı (Şut çekme esnasında)
+<p float="left">
+<img src="Resimler\OyunEkranı2.png" alt="Oyun Şut Esnasında İlk" width="300"/>
+<img src="Resimler\OyunEkranı3.png" alt="Oyun Şut Esnasında Son" width="300"/>
 </p>
 
 ## 🎮 Özellikler
