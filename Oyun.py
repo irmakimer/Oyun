@@ -69,7 +69,6 @@ sut_frame = 0
 font = pygame.font.SysFont(None, 28)
 baslik_font = pygame.font.SysFont(None, 64)
 skor_font = pygame.font.SysFont(None, 48)
-skor_font = pygame.font.SysFont(None, 48)
 
 # Menü
 menu = True
@@ -97,6 +96,40 @@ def yuksek_skor_kaydet(skor):
 yuksek_skor = yuksek_skor_yukle()
 hoop = random_hoop()
 
+def gidis_yonu_cizimi(pos, aci, guc):
+    noktalar = []
+    radyan = math.radians(aci)
+    x_ekseni = math.cos(radyan) * guc * 0.3
+    y_ekseni = -math.sin(radyan) * guc * 0.3
+    for t in range(50):
+        dx = pos[0] + x_ekseni * t * 0.2
+        dy = pos[1] + y_ekseni * t * 0.2 + 0.5 * yer_cekimi * (t * 0.2) ** 2
+        if dy > HEIGHT:
+            break
+        noktalar.append((int(dx), int(dy)))
+    if len(noktalar) > 1:
+        pygame.draw.lines(screen, WHITE, False, noktalar, 2)
+
+        if len(noktalar) >= 2:
+            p1 = noktalar[-2]
+            p2 = noktalar[-1]
+
+            dx = p2[0] - p1[0]
+            dy = p2[1] - p1[1]
+            aci = math.atan2(dy, dx)
+
+            ok_uzunluk = 10
+            ok_aci = math.radians(30)
+
+            sol = (
+                p2[0] - ok_uzunluk * math.cos(aci - ok_aci), p2[1] - ok_uzunluk * math.sin(aci - ok_aci))
+            sag = (
+                p2[0] - ok_uzunluk * math.cos(aci + ok_aci), p2[1] - ok_uzunluk * math.sin(aci + ok_aci))
+
+            pygame.draw.line(screen, WHITE, p1, p2, 2)
+            pygame.draw.line(screen, WHITE, p2, sol, 2)
+            pygame.draw.line(screen, WHITE, p2, sag, 2)
+
 def reset_top():
     global top_pos, vektor, top_hareketli_mi, sekme, top_donus_acisi
     top_pos = list(top_start)
@@ -113,6 +146,21 @@ def giris_menusu():
     screen.blit(baslik, (WIDTH // 2 - baslik.get_width() // 2, 160))
     screen.blit(giris_text, (WIDTH // 2 - giris_text.get_width() // 2, 250))
     screen.blit(cikis_text, (WIDTH // 2 - cikis_text.get_width() // 2, 290))
+    pygame.display.flip()
+
+def oyun_bitti_menusu():
+    screen.blit(arkaplan_resmi, (0, 0))
+    oyun_bitti_text = baslik_font.render("Oyun Bitti!", True, RED)
+    skor_text = skor_font.render(f"Skor: {skor}", True, BLACK)
+    yuksek_skor_text = skor_font.render(f"En Yüksek Skor: {yuksek_skor}", True, GREEN)
+    yeniden_baslat_text = font.render("ENTER - Yeniden Başlat", True, WHITE)
+    cikis_text = font.render("ESC - Çıkış", True, WHITE)
+
+    screen.blit(oyun_bitti_text, (WIDTH // 2 - oyun_bitti_text.get_width() // 2, 180))
+    screen.blit(skor_text, (WIDTH // 2 - skor_text.get_width() // 2, 255))
+    screen.blit(yuksek_skor_text, (WIDTH // 2 - yuksek_skor_text.get_width() // 2, 290))
+    screen.blit(yeniden_baslat_text, (WIDTH // 2 - yeniden_baslat_text.get_width() // 2, 350))
+    screen.blit(cikis_text, (WIDTH // 2 - cikis_text.get_width() // 2, 380))
     pygame.display.flip()
 
 # Ana Oyun Döngüsü
@@ -136,6 +184,7 @@ while True:
             pygame.quit()
             sys.exit()
         continue
+        
     if oyun_bitti:
         oyun_bitti_menusu()
         for event in pygame.event.get():
