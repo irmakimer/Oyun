@@ -117,3 +117,18 @@ while True:
             pygame.quit()
             sys.exit()
         continue
+    if oyun_bitti:
+        oyun_bitti_menusu()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_RETURN]:
+            oyun_bitti = False
+            menu = True
+        elif keys[pygame.K_ESCAPE]:
+            pygame.quit()
+            sys.exit()
+        continue
+        
