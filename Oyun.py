@@ -150,4 +150,21 @@ while True:
             pygame.quit()
             sys.exit()
         continue
+    
+    clock.tick(60)
+    screen.blit(arkaplan_resmi, (0, 0))
+    gecen_sure = int(time.time() - start_time)
+
+    if gecen_sure >= zaman_siniri:
+        oyun_bitti = True
+        if skor > yuksek_skor:
+            yuksek_skor = skor
+            yuksek_skor_kaydet(yuksek_skor)
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+
         
