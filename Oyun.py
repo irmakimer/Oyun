@@ -166,5 +166,38 @@ while True:
             pygame.quit()
             sys.exit()
 
+    
+    if sut_animation:
+        if sut_frame < len(sut_animasyonlari):
+            if animasyon_zamanlayici % frame_gecikmesi == 0:
+                screen.blit(sut_animasyonlari[sut_frame], (top_pos[0] - 150, HEIGHT - 250))
+                sut_frame += 1
+            else:
+                screen.blit(sut_animasyonlari[sut_frame - 1], (top_pos[0] - 150, HEIGHT - 250))
+            animasyon_zamanlayici += 1
+        else:
+            sut_animation = False
+            sut_frame = 0
+            animasyon_zamanlayici = 0
+            top_hareketli_mi = True
+    else:
+        screen.blit(oyuncu_standing, (WIDTH - 780, HEIGHT - 250))
+
+
+    # Topun döndürerek çizimi
+    dondurulmus_top = pygame.transform.rotate(top_resmi, -top_donus_acisi)
+    dondurulmus_rect = dondurulmus_top.get_rect(center=(int(top_pos[0]), int(top_pos[1])))
+    screen.blit(dondurulmus_top, dondurulmus_rect.topleft)
+
+    screen.blit(pygame.transform.scale(kale_resmi, (hoop.width, hoop.height)), (hoop.x, hoop.y))
+
+    if not top_hareketli_mi and not sut_animation:
+        gidis_yonu_cizimi(top_pos, top_aci, guc)
+
+
+
+
+
+ 
 
         
