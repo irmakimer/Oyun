@@ -2,6 +2,24 @@
 
 Bu proje, Pygame kütüphanesi ile geliştirilmiş 2D bir futbol şut oyunu. Oyuncu, topun açısını ve gücünü ayarlayarak kaleye şut çekmeye çalışır. Belirli bir süre içinde mümkün olduğunca fazla gol atmak hedeflenir.
 
+## 🖼️ Oyun Görselleri
+
+Aşağıda oyunda kullanılan bazı görselleri görebilirsiniz:
+
+### Menüler
+
+<p float="left">
+<img src="Resimler\AnaEkran.png" alt="Başlangıç Menüsü" width="300"/>
+<img src="Resimler\BitişEkranı.png" alt="Bitiş Menüsü" width="300"/>
+</p>
+
+### Oyun Ekranı (Şut öncesi ve sonrası)
+
+<p float="left">
+<img src="Resimler\OyunEkranı1.png" alt="Oyun Şut Öncesi" width="300"/>
+<img src="Resimler\OyunEkranı4.png" alt="Oyun Şut Sonrası" width="300"/>
+</p>
+
 ## 🎮 Özellikler
 
 - Açılı ve güçlü şut mekanizması
@@ -46,20 +64,27 @@ pip install pygame
 4. Oyunu başlat:
 
 ```bash
-python futbol.py
+python Oyun.py
 ```
 
 ## 📁 Dosya Yapısı
 
 ```
-futbol.py
+Oyun.py
 stadyum.png
+stand.png
 run1.png
 run2.png
 run3.png
 run4.png
 futboltopu.png
 kale.png
+AnaEkran.png
+BitişEkranı.png
+OyunEkranı1.png
+OyunEkranı2.png
+OyunEkranı3.png
+OyunEkranı4.png
 highest_score.txt (otomatik oluşur)
 README.md
 ```
