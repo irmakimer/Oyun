@@ -165,7 +165,27 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+            
+    keys = pygame.key.get_pressed()
 
+    if not top_hareketli_mi and not sut_animation:
+        if keys[pygame.K_UP]:
+            top_aci = min(80, top_aci + 1)
+        if keys[pygame.K_DOWN]:
+            top_aci = max(10, top_aci - 1)
+        if keys[pygame.K_RIGHT]:
+            guc = min(50, guc + 1)
+        if keys[pygame.K_LEFT]:
+            guc = max(10, guc - 1)
+        if keys[pygame.K_SPACE]:
+            sut_animation = True
+            sut_frame = 0
+            radyan = math.radians(top_aci)
+            vektor = [math.cos(radyan) * guc * 0.5, -math.sin(radyan) * guc * 0.5]
+            total_atislar += 1
+        if keys[pygame.K_ESCAPE]:
+            menu = True
+            continue
     
     if sut_animation:
         if sut_frame < len(sut_animasyonlari):
@@ -183,6 +203,28 @@ while True:
     else:
         screen.blit(oyuncu_standing, (WIDTH - 780, HEIGHT - 250))
 
+    if top_hareketli_mi:
+        vektor[1] += yer_cekimi
+        top_pos[0] += vektor[0]
+        top_pos[1] += vektor[1]
+        top_donus_acisi = (top_donus_acisi + 10) % 360
+
+        #Gol olması
+        top_rect = pygame.Rect(top_pos[0] - top_yaricap-10,top_pos[1] - top_yaricap-10, top_yaricap, top_yaricap * 2)
+        if top_rect.colliderect(hoop):
+            skor += 1
+            hoop = random_hoop()
+            reset_top()
+        elif top_pos[1] + top_yaricap >= HEIGHT:
+            if sekme < sekme_limiti:
+                top_pos[1] = HEIGHT - top_yaricap
+                vektor[1] = -vektor[1] * sekmedeki_yukseklik_azalmasi
+                vektor[0] *= 0.8
+                sekme += 1
+            else:
+                reset_top()
+        elif top_pos[0] > WIDTH:
+            reset_top()
 
     # Topun döndürerek çizimi
     dondurulmus_top = pygame.transform.rotate(top_resmi, -top_donus_acisi)
