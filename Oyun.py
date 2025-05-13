@@ -19,6 +19,25 @@ BLACK = (0, 0, 0)
 RED = (200, 50, 50)
 GREEN = (50, 200, 100)
 
+# Görseller
+oyuncu_standing = pygame.image.load('Resimler/run1.png')
+
+top_resmi = pygame.image.load("Resimler/futboltopu.png").convert_alpha()
+top_resmi = pygame.transform.scale(top_resmi, (50, 50))
+
+arkaplan_resmi = pygame.image.load("Resimler/stadyum.png").convert()
+arkaplan_resmi = pygame.transform.scale(arkaplan_resmi, (WIDTH, HEIGHT))
+
+kale_resmi = pygame.image.load("Resimler/kale.png").convert_alpha()
+
+# Şut animasyon görselleri
+sut_animasyonlari = [
+    pygame.image.load("Resimler/run2.png"),
+    pygame.image.load("Resimler/run3.png"),
+    pygame.image.load("Resimler/run4.png")
+]
+
+
 # Karakter
 eni, boyu = 64, 64
 vel = 5
