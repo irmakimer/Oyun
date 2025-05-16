@@ -110,6 +110,7 @@ def gidis_yonu_cizimi(pos, aci, guc):
     if len(noktalar) > 1:
         pygame.draw.lines(screen, WHITE, False, noktalar, 2)
 
+      # Top için ok eklentisi 
         if len(noktalar) >= 2:
             p1 = noktalar[-2]
             p2 = noktalar[-1]
